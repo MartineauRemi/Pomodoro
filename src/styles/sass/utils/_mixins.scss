@@ -1,0 +1,7 @@
+@mixin stroke-dashoffset(){
+    from{
+        stroke-dashoffset: 785;
+    }to{
+        stroke-dashoffset: 0;
+    }
+}

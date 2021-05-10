@@ -1,0 +1,156 @@
+.timer, .timer__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer{
+    color: $blueish-gray;
+    width: 18.75rem;
+    min-width: 18.75rem;
+    max-width: 18.75rem;
+    height: 18.75rem;
+    min-height: 18.75rem;
+    max-height: 18.75rem;
+    margin-bottom: 5rem;
+    background: linear-gradient(315deg, $highlight-blue-primary 0%, $downlight-blue-primary 100%);
+    box-shadow: -50px -50px 100px $highlight-blue-secondary, 50px 50px 100px $downlight-blue-secondary;
+    border-radius: 100%;
+    cursor: pointer;
+    position: relative;
+    display: none;
+            
+    &--active{
+        display: flex;
+    }
+
+    &__content{
+        z-index: 2;
+    }
+
+    /**A circle drawn over time
+    *shows the user how much time is left on the timer.
+    *The circle is completed when the timer hits 0
+    **/
+    &__circle{
+        width: 18.75rem;
+        height: 18.75rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+
+        .circle{
+            width: 18.75rem;
+            height: 18.75rem;
+            transform: rotate(-90deg);
+        }
+
+        @media screen and (min-width: 768px){
+            width: 25.75rem;
+            height: 25.75rem;
+
+            .circle{
+                width: 25.75rem;
+                height: 25.75rem;
+            }
+
+            .ellipse{
+                transform: scale(1.3733);
+            }
+        }
+
+        .ellipse{
+            fill: transparent;
+            stroke-dasharray: 785;
+            stroke-dashoffset: 785;
+
+            &--red{
+                stroke: $red;
+            }
+
+            &--turquoise{
+                stroke: $turquoise;
+            }
+
+            &--purple{
+                stroke: $purple;
+            }
+
+            @keyframes draw-circle{
+                from{
+                    stroke-dashoffset: 785;
+                }to{
+                    stroke-dashoffset: 0;
+                }
+            }
+
+            &--initial{
+                stroke-dashoffset: 785;
+            }
+
+            &--active{
+                animation-name: draw-circle;
+                animation-timing-function: linear;
+            }
+
+            &--paused{
+                animation-name: draw-circle;
+                animation-play-state: paused;
+            }
+
+            &--running{
+                animation-name: draw-circle;
+                animation-play-state: running;
+            }
+
+            &--completed{
+                stroke-dashoffset: 0;
+                animation: unset;
+            }
+        }
+    }
+
+    //another layer to the Timer component to make it prettier
+    &::after{
+        content: "";
+        width: 16.75rem;
+        min-width: 16.75rem;
+        max-width: 16.75rem;
+        height: 16.75rem;
+        min-height: 16.75rem;
+        max-height: 16.75rem;
+        border-radius: 100%;
+        position:absolute;
+        top: 1rem;
+        left: 1rem;
+        background-color: $dark-blue;
+        z-index: 1;
+    }
+
+    @media screen and (min-width: 768px){
+        width: 25.75rem;
+        min-width: 25.75rem;
+        max-width: 25.75rem;
+        height: 25.75rem;
+        min-height: 25.75rem;
+        max-height: 25.75rem;
+        margin-bottom: 9rem;
+
+        &::after{
+            width: 22.875rem;
+            min-width: 22.875rem;
+            max-width: 22.875rem;
+            height: 22.875rem;
+            min-height: 22.875rem;
+            max-height: 22.875rem;
+            top: 1.4375rem;
+            left: 1.4375rem;
+        }
+    }
+
+    @media screen and (min-width: 1440px){
+        margin-bottom: 4rem;
+    }
+}

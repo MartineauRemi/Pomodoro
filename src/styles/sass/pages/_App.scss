@@ -1,0 +1,36 @@
+.App{
+    height: 100vh;
+    max-height: 100vh;
+    background-color: $marine;
+    padding: 2rem 1.5rem 3rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &--kumbh{
+        font-family: 'Kumbh Sans', sans-serif;
+    }
+
+    &--roboto{
+        font-family: 'Roboto Slab', sans-serif;
+    }
+
+    &--space{
+        font-family: 'Space Mono', sans-serif;
+    }
+
+    .title{
+        text-align: center;
+        color: $blueish-gray;
+        margin-bottom: 2.75rem;
+
+        @media screen and (min-width: 768px){
+            margin-bottom: 3.5rem;
+        }
+    }
+
+    @media screen and (min-width: 768px){
+        padding-top: 5rem;
+    }
+}

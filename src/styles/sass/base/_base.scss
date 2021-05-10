@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-weight: 700;
+}
+
+body{
+    font-size: 0.75rem;
+    line-height: 0.875rem;
+    height: 100vh;
+
+    @media screen and (min-width: 1440px){
+        font-size: 0.875rem;
+        line-height: 1.125rem;
+    }
+}
+
+h1{
+    font-size: 4.75rem;
+    line-height: 7.25rem;
+    letter-spacing: -0.25rem;
+}
+
+h2{
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+}
+
+h3{
+    font-size: 0.875rem;
+    line-height: 0.6875rem;
+    letter-spacing: 0.25rem;
+}
+
+h4{
+    font-size: 0.8125rem;
+    line-height: 1rem;
+}
+
+button{
+    border: none;
+    cursor: pointer;
+}
+
+
+@media screen and (min-width: 768px){
+    h1{
+        font-size: 6rem;
+        line-height: 7.5rem;
+    }
+
+    h2{
+        font-size: 1.75rem;
+        line-height: 2.125rem;
+    }
+
+    h3{
+        font-size: 0.8125rem;
+        line-height: 0.8125rem;
+        letter-spacing: 0.3125rem;
+    }
+}
