@@ -19,11 +19,6 @@
     border-radius: 100%;
     cursor: pointer;
     position: relative;
-    display: none;
-            
-    &--active{
-        display: flex;
-    }
 
     &__content{
         z-index: 2;

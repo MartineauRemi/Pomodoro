@@ -7,6 +7,8 @@ export default function TimeItem({name, text, value, onChangeValue}) {
 
     const onClickMore = () => onChangeValue(value === MAX_VALUE? value : value + 1)
     const onClickLess = () => onChangeValue(value === MIN_VALUE? value : value - 1)
+    const onChange = (e) => onChangeValue(e.target.value)
+
     return (
         <section className="settings__time-item">
             <label htmlFor={name}>
@@ -19,7 +21,7 @@ export default function TimeItem({name, text, value, onChangeValue}) {
                 max={MAX_VALUE}
                 step={STEP}
                 value={value}
-                onChange={(e) => onChangeValue(e.target.value)}/>
+                onChange={onChange}/>
             <div
                 className="settings__time-item-btn
                            settings__time-item-btn--more"

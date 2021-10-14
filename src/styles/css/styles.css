@@ -140,14 +140,10 @@ button {
   border-radius: 100%;
   cursor: pointer;
   position: relative;
-  display: none;
   /**A circle drawn over time
   *shows the user how much time is left on the timer.
   *The circle is completed when the timer hits 0
   **/
-}
-.timer--active {
-  display: flex;
 }
 .timer__content {
   z-index: 2;
