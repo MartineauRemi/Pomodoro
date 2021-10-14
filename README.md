@@ -27,8 +27,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://github.com/MartineauRemi/Pomodoro](https://github.com/MartineauRemi/Pomodoro)
+- Live Site URL: [https://martineauremi.github.io/Pomodoro/index.html](https://martineauremi.github.io/Pomodoro/index.html)
 
 ## My process
 
@@ -46,6 +46,7 @@ Users should be able to:
 ## Author
 
 - Website - [Rémi Martineau](https://martineauremi.github.io/)
+- Linkedin - [Rémi Martineau](https://www.linkedin.com/in/r%C3%A9mi-martineau-25a54b12a)
 - Frontend Mentor - [@MartineauRemi](https://www.frontendmentor.io/profile/MartineauRemi)
 - Twitter - [@MartineauRmi1](https://www.twitter.com/MartineauRmi1)
 
