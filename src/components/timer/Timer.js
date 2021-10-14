@@ -4,29 +4,25 @@ import { displayTimerValue } from '../../helpers/TimerHelper'
 import { useTimerContext } from '../../contexts/TimerProvider'
 
 export default function Timer({activeColor}) {    
-    const TIMER_STATE_START = "START"
-    const TIMER_STATE_RESTART = "RESTART"
-    const TIMER_STATE_PAUSE = "PAUSE"
-
-    const {timerInitialValue } = useTimerContext()
+    const {timerInitialValue, timerStates } = useTimerContext()
 
     const [timerCurrentValue, setTimerCurrentValue] = useState(timerInitialValue * 60000)      //time in ms
     const [timerActive, setTimerActive] = useState(false)
-    const [timerState, setTimerState] = useState(TIMER_STATE_START)
+    const [timerState, setTimerState] = useState(timerStates.start)
 
     const [ellipseInitial, setEllipseInitial] = useState(true)
     const [ellipseActive, setEllipseActive] = useState(false)
     const [ellipseRunning, setEllipseRunning] = useState(false)
  
     function updateTimerTextAfterClick(){
-        timerState === TIMER_STATE_START
-            ? setTimerState(TIMER_STATE_PAUSE)
-            : setTimerState(TIMER_STATE_START)     
+        timerState === timerStates.start
+            ? setTimerState(timerStates.pause)
+            : setTimerState(timerStates.start)     
     }
 
     function onClickTimer(){
         if(timerActive){
-            if(timerState === TIMER_STATE_PAUSE)
+            if(timerState === timerStates.pause)
                 setEllipseRunning(false)
             else{
                 setTimerCurrentValue(timerInitialValue * 60000)
@@ -53,12 +49,12 @@ export default function Timer({activeColor}) {
                     setTimerCurrentValue(timerCurrentValue - 500) 
             }, 500)
             if(timerCurrentValue === 0)
-                setTimerState(TIMER_STATE_RESTART)
+                setTimerState(timerStates.restart)
             return () => clearInterval(timeout)
         }else{
             clearInterval(timeout)
         }
-    }, [timerActive, timerCurrentValue])
+    }, [timerActive, timerCurrentValue, timerStates.restart])
 
     //when the user changes the timer type, reset the timer with the corresponding initial time
     useEffect(() => {
@@ -66,8 +62,8 @@ export default function Timer({activeColor}) {
         setEllipseActive(false)
         setEllipseInitial(true)
         setTimerActive(false)
-        setTimerState(TIMER_STATE_START)
-    }, [timerInitialValue])
+        setTimerState(timerStates.start)
+    }, [timerInitialValue, timerStates.start])
 
     useEffect(() => {
     }, [timerInitialValue])
